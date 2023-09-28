@@ -1,6 +1,7 @@
 let form=document.getElementById('addForm');
 let item=document.getElementById('item1');
 let itemList=document.getElementById('items');
+let filter= document.getElementById('filter');
 form.addEventListener('submit',addItem=(e)=>{
     e.preventDefault();
 
@@ -11,8 +12,10 @@ form.addEventListener('submit',addItem=(e)=>{
     let li=document.createElement('li');
     li.className=item.className;
     let newItemName= document.getElementById('item').value;
+    let description= document.getElementById('description').value;
+    
     // appending textNode in li
-    let itemTextNode=document.createTextNode(newItemName);
+    let itemTextNode=document.createTextNode(newItemName + " " +description);
     li.appendChild(itemTextNode);
 
     
@@ -39,6 +42,24 @@ itemList.addEventListener('click',removeItem=(e)=>{
     }
 });
 
+filter.addEventListener('keyup',search);
+
+function search(e){
+    let text=filter.value.toLowerCase();
+    let li= itemList.getElementsByTagName('li');
+
+    Array.from(li).forEach((listNo)=>{
+        let itemName=listNo.childNodes[0].textContent;
+        if(itemName.toLowerCase().includes(text)){
+            listNo.style.display='block';
+        }
+        else{
+            listNo.style.display='none';
+        }
+    });
+        
+    
+}
 
 
   
