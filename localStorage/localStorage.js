@@ -7,10 +7,17 @@ let time= document.getElementById('time');
 
 
 getACall.addEventListener('click',(e)=>{
-    localStorage.setItem('userName',name.value);
-    localStorage.setItem('userEmail',email.value);
-    localStorage.setItem('userPhoneNo',phoneNo.value);
-    localStorage.setItem('dateOfAppointment',date.value);
-    localStorage.setItem('timeOfAppointment',time.value);
+    let userDetails={
+        userName: name.value,
+        userEmail: email.value,
+        userPhoneNo: phoneNo.value,
+        dateOfApp: date.value,
+        timeOfApp: time.value, 
+    }
+
+    let userDetailsSerialized= JSON.stringify(userDetails);
+
+    localStorage.setItem('userDetails',userDetailsSerialized);
+
 });
 
