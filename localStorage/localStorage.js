@@ -5,7 +5,7 @@ let phoneNo= document.getElementById('phone');
 let date= document.getElementById('date');
 let time= document.getElementById('time');
 
-console.log(name.value);
+
 getACall.addEventListener('click',(e)=>{
     e.preventDefault();
 
@@ -27,6 +27,20 @@ getACall.addEventListener('click',(e)=>{
     li.appendChild(details);
     ul.appendChild(li);
     body.appendChild(ul);
+
+    let deleteBtn=document.createElement('button');
+    deleteBtn.style.backgroundColor='#D3D3D3';
+    let btnName=document.createTextNode('delete');
+    deleteBtn.appendChild(btnName);
+    li.appendChild(deleteBtn);
+
+    deleteBtn.addEventListener('click',deleteDetails);
+
+
+    function deleteDetails(e){
+        localStorage.removeItem(userDetails.userName);
+        ul.remove(li);
+    }
 
 
 });
