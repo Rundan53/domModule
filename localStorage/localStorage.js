@@ -40,7 +40,7 @@ getACall.addEventListener('click',(e)=>{
 
     //adding edit button
     let editBtn= document.createElement('button');
-    editBtn.classList='btn btn-danger btn-sm float-right delete'
+    editBtn.classList='btn btn-success btn-sm float-right delete'
    
     let editBtnName=document.createTextNode('edit');
     editBtn.appendChild(editBtnName);
